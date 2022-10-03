@@ -11,6 +11,7 @@ const db = mysql.createConnection({
 });*/
 const db = mysql.createConnection(process.env.JAWSDB_URL);
 
+//May just need to get rid of auth.js and move these to app.js
 exports.register = (req, res) => {
     console.log(req.body);
 
