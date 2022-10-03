@@ -2,7 +2,7 @@
   "name": "massivepackage",
   "version": "1.0.0",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
