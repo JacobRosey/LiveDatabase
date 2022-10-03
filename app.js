@@ -2,12 +2,12 @@ const express = require('express');
 const mysql = require('mysql');
 const exphbs = require('express-handlebars');
 const path = require('path');
-const dotenv = require('dotenv');
+//const dotenv = require('dotenv');
 const bcrypt = require('bcryptjs');
 
 //Resume download not working
 
-dotenv.config({ path: './.env' });
+//dotenv.config({ path: './.env' });
 
 const app = express();
 
