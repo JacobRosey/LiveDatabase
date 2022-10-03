@@ -5,7 +5,7 @@ var pairs = [];
 window.onload = checkForUser();
 
 //Checks if user is logged in and displays that on screen
-//Also used to make sure edits aren't made if not logged in
+//Also used to make sure edits aren't made if not logged in.
 function checkForUser(){
 
     let isLogged = sessionStorage.getItem('logged');
