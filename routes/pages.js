@@ -19,8 +19,7 @@ router.get('/register', (req, res) => {
 });
 
 router.get('/auth/register', (req, res) => {
-    let message = authController.register();
-    res.render('register', { message: message})
+    authController.register();
 })
 
 router.get('/login', (req, res) => {
