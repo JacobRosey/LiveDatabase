@@ -10,7 +10,6 @@ const bcrypt = require('bcryptjs');
 dotenv.config({ path: './.env' });
 
 const app = express();
-const port = process.env.PORT || 3000;
 
 //Static files
 app.use(express.static('public'));
@@ -24,8 +23,6 @@ if(process.env.JAWSDB_URL) {
     db = mysql.createConnection(process.env.JASWSDB_URL)
 } else {
     db = mysql.createConnection({
-        connectionLimit: 100,
-        //acquireTimeout  : 30000,
         host: "localhost",
         user: "root",
         password: "password",
@@ -33,6 +30,7 @@ if(process.env.JAWSDB_URL) {
     });
 }
 
+const port = process.env.PORT || 3000;
 //Create Database Connection LOCALLY 
 /*
 const db = mysql.createConnection({
