@@ -18,17 +18,7 @@ app.use(express.static('public'));
 app.engine('hbs', exphbs.engine({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
 
-let db;
-if(process.env.JAWSDB_URL) {
-    db = mysql.createConnection(process.env.JASWSDB_URL)
-} else {
-    db = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "password",
-        database: "simplelogin"
-    });
-}
+const db = mysql.createConnection(process.env.JASWSDB_URL);
 
 const port = process.env.PORT || 3000;
 //Create Database Connection LOCALLY 
