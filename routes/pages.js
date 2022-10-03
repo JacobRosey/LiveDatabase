@@ -18,6 +18,11 @@ router.get('/register', (req, res) => {
     res.render('register');
 });
 
+router.get('/auth/register', (req, res) => {
+    let message = authController.register();
+    res.render('register', { message: message})
+})
+
 router.get('/login', (req, res) => {
     res.render('login');
 });
