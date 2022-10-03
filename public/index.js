@@ -69,6 +69,8 @@ function deleteRow(num) {
         //let modal = document.getElementById('delModal');
         //modal.preventDefault();
         setTimeout(() => {
+            //Simulate button click on modal to close - can't figure out 
+            //prevent default. 
             document.getElementById('del-close').click();
             alert("You can't delete a user that you're logged in with!")},
             500);

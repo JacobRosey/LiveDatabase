@@ -19,7 +19,22 @@ app.use(express.static('public'));
 app.engine('hbs', exphbs.engine({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
 
-//Create Database Connection
+let db;
+if(process.env.JAWSDB_URL) {
+    db = mysql.createConnection(process.env.JASWSDB_URL)
+} else {
+    db = mysql.createConnection({
+        connectionLimit: 100,
+        //acquireTimeout  : 30000,
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASS,
+        database: process.env.DB_NAME
+    });
+}
+
+//Create Database Connection LOCALLY 
+/*
 const db = mysql.createConnection({
     connectionLimit: 100,
     //acquireTimeout  : 30000,
@@ -28,7 +43,7 @@ const db = mysql.createConnection({
     password: process.env.DB_PASS,
     database: process.env.DB_NAME
 });
-
+*/  
 const publicDirectory = path.join(__dirname, './public/');
 app.use(express.static(publicDirectory));
 

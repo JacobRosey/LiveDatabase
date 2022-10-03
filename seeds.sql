@@ -1,0 +1,2 @@
+insert into Users set username = "jacobrosey" set password = "$2a$08$14jXWzglPWJ7HMBH7NwQsOzXjU6tO.TpzfTZWokqPvmKCJRkriD1u";
+insert into Users set username = "newusername" set password = "$2a$08$bk9i.aa9IZTDapirOuurxewrSPbi/VYEnTFvzAU.gz60x8ZPbv0p.";
