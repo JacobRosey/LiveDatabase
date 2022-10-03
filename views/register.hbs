@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login Authentication</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <style>
+        
+        h1 {
+            color: #0d6efd;
+            font-weight: bold;
+            font-size: 2em;
+            text-align: center;
+            margin: .75em;
+        }
+
+        .container {
+            background: #ccc;
+            border-radius: 10px;
+            margin: 0 auto;
+            margin-top: 6em;
+            padding: 1em;
+            width: 85%;
+            max-width: 500px;
+        }
+
+        input {
+            min-width: 300px;
+            width: 85%;
+        }
+        form{
+            margin: 1.5em;
+            margin-top: -2em;
+        }
+        label {
+            font-weight: bold;
+            margin: .3em;
+        }
+        footer{
+            margin-top: 2.5em;
+        }
+    </style>
+    <h1>Create Your Account</h1>
+    <div class="container">
+        <form action="/auth/register" method="POST">
+            <div class="form-group">
+                <label for="user">Username:</label>
+                <input name="user" type="text" id="userN" maxlength="12" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input name="password" type="password" id="password" maxlength="12" required>
+            </div>
+            <div class="form-group">
+                <label for="passwordConfirm">Confirm Password:</label>
+                <input name="passwordConfirm" id="passwordConfirm" type="password" maxlength="12"
+                    required>
+            </div>
+            <button type="submit" class="btn btn-success" style="margin: 1em;">Register</button>
+        </form>
+    </div>
+    </div>
+    </div>
+    {{#if message }}
+    <h4 class="alert alert-success mt-4">{{message}}</h4>
+    {{/if}}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="index.js" async defer></script>
+</body>
+
+</html>

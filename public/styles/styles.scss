@@ -1,0 +1,15 @@
+@import "../node_modules/bootstrap/scss/containers";
+
+:root{
+    --background-color: #f2f2f2;
+    --primary-color: #0000FF;
+}
+body{
+    background: var(--background-color);
+}
+h1{
+    color: var(--primary-color);
+}
+.container{
+    background: #ccc;
+}

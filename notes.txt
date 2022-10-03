@@ -1,0 +1,16 @@
+current issues -
+
+Figured out how to get the table to get live updates, however....
+The table is only rendered the second time the /database route is visited
+Also the console.log shows an empty array but the data is rendered? wtf is 
+going on
+
+need to figure out how to edit/delete rows based on index of row.
+I can delete the correct row now, but I need to keep track of which records have been deleted, or just 
+refresh the page after sql query is completed (easier solution). If not, the wrong rows would be edited 
+if you just deleted a shit ton of records then edited. the indexes get fucked up because handlebars only 
+renders them once, on page load
+
+
+Need to make it so you have to be logged in to edit/delete rows, just so there's 
+actually a point to logging in. Then the project is finished
