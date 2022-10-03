@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 
 //Resume download not working
 
-//dotenv.config({ path: './.env' });
+dotenv.config({ path: './.env' });
 
 const app = express();
 
