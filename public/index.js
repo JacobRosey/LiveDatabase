@@ -1,14 +1,7 @@
-
-//This shit aint done until this global variable is fixed
 var pairs = [];
-
-//Make it so you can't edit or delete the user that you are logged in as - check
-//Also make it so you have to be logged in to edit/delete - check
-//Need to figure out how to prevent modal from popping up in above cases, then all good
 
 //Could figure out how to use cookies so that you can't edit/delete a user 
 //that is logged in on another tab or computer as well
-
 window.onload = checkForUser();
 
 //Checks if user is logged in and displays that on screen
