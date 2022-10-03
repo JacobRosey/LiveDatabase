@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs');
 
 //Resume download not working
 
-dotenv.config({ path: './.env' });
+//dotenv.config({ path: './.env' });
 
 const app = express();
 
@@ -53,10 +53,10 @@ app.use(express.json());
 
 db.connect((err) => {
     if (err) throw err; //Failed to connect
-    console.log('Connected to ' + process.env.DB_NAME);
+    console.log('Connected to DB');
 });
 
-app.listen(port || 3200, () => {
+app.listen(port, () => {
     console.log(`Server started on Port ${port}`)
 });
 
