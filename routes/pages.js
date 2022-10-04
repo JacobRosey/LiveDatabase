@@ -18,10 +18,6 @@ router.get('/register', (req, res) => {
     res.render('register');
 });
 
-router.get('/auth/register', (req, res) => {
-    authController.register();
-})
-
 router.get('/login', (req, res) => {
     res.render('login');
 });
