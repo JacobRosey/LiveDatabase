@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/database', (req, res) => {
-    let data = authController.renderData();
+    const data = authController.renderData();
     res.render('database', {data: data});
 });
 
