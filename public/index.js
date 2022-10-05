@@ -228,7 +228,7 @@ function ajaxFunc(key, path, method, d) {
         var response = xhr.responseText;
         if (response == "Login Successful!") {
             //Will need to change route when this site is live
-            window.location.replace('https://livedatabase.herokuapp.com/database');
+            window.location.replace('http://livedatabase.herokuapp.com/database');
             alert(response);
             //Setup session storage
             sessionStorage.setItem('logged', true);
