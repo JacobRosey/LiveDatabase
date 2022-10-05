@@ -10,8 +10,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/database', (req, res) => {
-    const data = authController.renderData();
-    res.render('database', {data: data});
+    let data = authController.renderData();
+    //res.render('database', {data: data});
+    res.send('Testing');
 });
 
 router.get('/register', (req, res) => {
