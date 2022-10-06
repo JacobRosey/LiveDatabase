@@ -76,6 +76,9 @@ exports.renderData = () => {
         });
     })
     renderPromise
+    .then(()=>{
+        return renderPromise
+    })
         /*.then(() => {
             console.log(sqlData);
             console.log("sqldata ^^")
