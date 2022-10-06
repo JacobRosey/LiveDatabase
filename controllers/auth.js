@@ -64,12 +64,9 @@ exports.renderData = () => {
                     user: results[i].username,
                     hash: results[i].hash
                 }
-                console.log(sqlRow);
                 sqlData.push(sqlRow);
             }
         }
     });
-    console.log(sqlData)
-    console.log('this is the sql data ^')
     return sqlData;
 }
