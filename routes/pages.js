@@ -10,13 +10,16 @@ router.get('/', (req, res) => {
 });
 
 router.get('/database', (req, res) => {
-
-    setTimeout(() => {
+   
+    const promise = new Promise((resolve, reject) => {
         let data = authController.renderData();
-        console.log("here's the data: " + data)
-        res.render('database', { data: data });
-    }, 2000)
-
+        resolve(data)
+    })
+    promise.then(() => {
+        res.render('database', {data: data});
+        console.log("here's the data: "+ data)
+    })
+    //res.render('database', {data: data});
 });
 
 router.get('/register', (req, res) => {
