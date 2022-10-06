@@ -38,7 +38,6 @@ exports.register = (req, res) => {
         //Hash the password 8 times using bcrypt
         let hashedPass = await bcrypt.hash(password, 8);
         console.log(hashedPass);
-        console.log('right before db.query');
         db.query('INSERT INTO Users SET ?', { username: user, hash: hashedPass }, (err, result) => {
             if (err) {
                 console.log(err);
@@ -77,13 +76,13 @@ exports.renderData = () => {
         });
     })
     renderPromise
-        .then(() => {
+        /*.then(() => {
             console.log(sqlData);
             console.log("sqldata ^^")
         })
         .catch(() => {
             console.error('Something went wrong');
             res.send("This username does not exist!")
-        })
+        })*/
 
 }
