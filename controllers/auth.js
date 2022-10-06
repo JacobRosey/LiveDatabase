@@ -53,9 +53,9 @@ exports.register = (req, res) => {
     });
 }
 
-exports.renderData = () => {
+exports.renderData = async() => {
     var sqlData = [];
-    db.query('SELECT * FROM users',function (error, results, fields) {
+    await db.query('SELECT * FROM users',function (error, results, fields) {
         if (error) throw error;
         else {
             for (i = 0; i < results.length; i++) {
