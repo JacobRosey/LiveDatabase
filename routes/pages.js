@@ -9,12 +9,14 @@ router.get('/', (req, res) => {
     res.render('index');
 });
 
-router.get('/database', async(req, res) => {
-   
-    let data = await authController.renderData();
-    console.log("here's the data: "+ data)
-    res.render('database', {data: data});
-    //res.send('Testing'); this worked, so the code is being reached...
+router.get('/database', (req, res) => {
+
+    setTimeout(() => {
+        let data = authController.renderData();
+        console.log("here's the data: " + data)
+        res.render('database', { data: data });
+    }, 2000)
+
 });
 
 router.get('/register', (req, res) => {
