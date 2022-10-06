@@ -53,7 +53,7 @@ exports.register = (req, res) => {
 }
 
 
-exports.renderData = () => { //Pretty sure I don't want to use a promise here after all
+exports.renderData = async() => {
     var sqlData = [];
     db.query('SELECT * FROM users',function (error, results, fields) {
         if (error) throw error;
