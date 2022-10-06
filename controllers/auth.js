@@ -71,9 +71,10 @@ exports.renderData = () => {
                     sqlData.push(sqlRow);
                     console.log('pushing sqlrow to sqldata')
                     console.log(sqlRow)
-                    //resolve(sqlData);
                 }
+                resolve(sqlData);
             }
+            reject();
         });
     })
     renderPromise
