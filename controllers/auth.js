@@ -21,7 +21,7 @@ exports.register = (req, res) => {
         if (err) {
             console.log(err);
         }
-        if(user.length <= 6){
+        if (user.length <= 6) {
             return res.render('register', {
                 message: 'Username must be 6 or more characters'
             });
@@ -56,12 +56,12 @@ exports.register = (req, res) => {
 exports.renderData = () => {
     var sqlData = [];
     const renderPromise = new Promise((resolve, reject) => {
-        db.query('SELECT * FROM users',function (error, results, fields) {
-            if (error){
+        db.query('SELECT * FROM users', function (error, results, fields) {
+            if (error) {
                 console.log(error);
                 reject();
             }
-            if(results.length > 0){
+            if (results.length > 0) {
                 for (i = 0; i < results.length; i++) {
                     let sqlRow = {
                         key: results[i].prim_key,
@@ -75,14 +75,14 @@ exports.renderData = () => {
                 }
             }
         });
-        renderPromise
+    })
+    renderPromise
         .then(() => {
             return sqlData;
         })
-        .catch(()=>{
+        .catch(() => {
             console.error('Something went wrong');
             res.send("This username does not exist!")
         })
 
-    })
 }
