@@ -12,17 +12,9 @@ router.get('/', (req, res) => {
 router.get('/database', async (req, res) => {
     //Console log is happening before renderData even starts, so need to make 
     //sure that render data is complete before moving on 
-    //let data = await authController.renderData();
-    let data = new Promise((resolve, reject, error) => {
-        if (error) {
-            reject();
-        }
-        resolve(authController.renderData());
-    }).then(() => {
-        console.log("here's the data: " + data.data)
-        res.render('database', { data: data.data });
-    })
-
+    let data = await authController.renderData();
+    console.log(data);
+    res.render('database', {data: data})
 });
 
 router.get('/register', (req, res) => {
