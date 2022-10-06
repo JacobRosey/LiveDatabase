@@ -53,7 +53,7 @@ exports.register = (req, res) => {
 }
 
 
-exports.renderData = async() => {
+exports.renderData = () => {
     var sqlData = [];
     db.query('SELECT * FROM users',function (error, results, fields) {
         if (error) throw error;
