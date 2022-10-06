@@ -69,12 +69,12 @@ exports.renderData = () => {
                     console.log(results[i])
                 }*/
                 let sqlRow = {
-                    key: [i].prim_key,
-                    user: [i].username,
-                    hash: [i].hash
+                    key: results[i].prim_key,
+                    user: results[i].username,
+                    hash: results[i].hash
                 }
                 console.log(sqlRow);
-                console.log([i].username)
+                console.log(results[i].username)
                 sqlData.push(sqlRow);
             }
         }
