@@ -55,21 +55,34 @@ exports.register = (req, res) => {
 
 exports.renderData = () => {
     var sqlData = [];
-    db.query('SELECT * FROM users', async function (error, results, fields) {
-        if (error) throw error;
-        else {
-            for (i = 0; i < results.length; i++) {
-                let sqlRow = {
-                    key: results[i].prim_key,
-                    user: results[i].username,
-                    hash: results[i].hash
-                }
-                await sqlData.push(sqlRow);
-                console.log('pushing sqlrow to sqldata')
-                console.log(sqlRow)
+    const renderPromise = new Promise((resolve, reject) => {
+        db.query('SELECT * FROM users',function (error, results, fields) {
+            if (error){
+                console.log(error);
+                reject();
             }
-        }
-    });
-    console.log('returning sqlData');
-    return sqlData;
+            if(results.length > 0){
+                for (i = 0; i < results.length; i++) {
+                    let sqlRow = {
+                        key: results[i].prim_key,
+                        user: results[i].username,
+                        hash: results[i].hash
+                    }
+                    sqlData.push(sqlRow);
+                    console.log('pushing sqlrow to sqldata')
+                    console.log(sqlRow)
+                    resolve(sqlData);
+                }
+            }
+        });
+        renderPromise
+        .then(() => {
+            return sqlData;
+        })
+        .catch(()=>{
+            console.error('Something went wrong');
+            res.send("This username does not exist!")
+        })
+
+    })
 }
