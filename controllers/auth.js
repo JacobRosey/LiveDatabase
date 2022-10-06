@@ -74,8 +74,9 @@ exports.renderData = () => {
             } reject();
 
         });
-        return promise;
     })
+    return promise;
+    
     
     /*var sqlData = [];
     const renderPromise = new Promise((resolve, reject) => {
