@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
 
 router.get('/database', (req, res) => {
     let data = authController.renderData();
+    console.log("here's the data: "+ data)
     res.render('database', {data: data});
     //res.send('Testing'); this worked, so the code is being reached...
 });
