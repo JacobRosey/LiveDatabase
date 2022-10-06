@@ -10,8 +10,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/database', async(req, res) => {
-    //Console log is happening before renderData even starts, so need to make 
-    //sure that render data is complete before moving on 
+    //Wait for renderData promise to resolve and return it as 'data'
     let data = await authController.renderData();
     console.log('Here is your data: '+ data);
     res.render('database', {data: data})
