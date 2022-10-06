@@ -65,10 +65,11 @@ exports.renderData = () => {
                     hash: results[i].hash
                 }
                 sqlData.push(sqlRow);
+                console.log('pushing sqlrow to sqldata')
                 console.log(sqlRow)
             }
         }
     });
-    console.log(sqlData);
+    console.log('returning sqlData');
     return sqlData;
 }
