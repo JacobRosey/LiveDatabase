@@ -22,7 +22,7 @@ function checkForUser(){
             el.style.color = "#dd3444";
             break;
         case null:
-            el.innerHTML = "Session Storage key does not yet exist";
+            el.innerHTML = "You are not logged in";
             el.style.color = "#dd3444";
             break;
         default:
