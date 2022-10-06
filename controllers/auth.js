@@ -55,23 +55,29 @@ exports.register = (req, res) => {
 
 exports.renderData = () => {
     var sqlData = [];
-    db.query('SELECT * FROM users',function (error, results, fields) {
-        if (error) throw error;
-        else {
-            if (results.length > 0) {
-                for (i = 0; i < results.length; i++) {
-                    let sqlRow = {
-                        key: results[i].prim_key,
-                        user: results[i].username,
-                        hash: results[i].hash
+    const promise = new Promise((resolve, reject) => {
+        db.query('SELECT * FROM users',function (error, results, fields) {
+            if (error) throw error;
+            else {
+                if (results.length > 0) {
+                    for (i = 0; i < results.length; i++) {
+                        let sqlRow = {
+                            key: results[i].prim_key,
+                            user: results[i].username,
+                            hash: results[i].hash
+                        }
+                        sqlData.push(sqlRow);
                     }
-                    sqlData.push(sqlRow);
+                    console.log(sqlData);
+                    resolve(sqlData);
                 }
-                console.log(sqlData);
-                return sqlData;
-            }
-        }
-    });
+            } reject();
+
+        });
+    })
+    .then(() => {
+        return promise;
+    })
     /*var sqlData = [];
     const renderPromise = new Promise((resolve, reject) => {
         db.query('SELECT * FROM users', function (error, results, fields) {
