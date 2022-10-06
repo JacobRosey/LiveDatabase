@@ -65,7 +65,6 @@ app.route('/database')
 
         //Hash the password 8 times using bcrypt
         let hashedPass = await bcrypt.hash(pass, 8);
-
         db.query('UPDATE Users SET ? WHERE prim_key = ' + key + '', { username: name, hash: hashedPass }, (err, result) => {
             if (err) {
                 console.log(err);
