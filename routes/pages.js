@@ -11,15 +11,9 @@ router.get('/', (req, res) => {
 
 router.get('/database', (req, res) => {
    
-    const promise = new Promise((resolve, reject) => {
-        let data = authController.renderData();
-        resolve(data)
-    })
-    promise.then(() => {
-        res.render('database', {data: data});
-        console.log("here's the data: "+ data)
-    })
-    //res.render('database', {data: data});
+    let data = authController.renderData();
+    console.log("here's the data: "+ data)
+    res.render('database', {data: data});
 });
 
 router.get('/register', (req, res) => {
