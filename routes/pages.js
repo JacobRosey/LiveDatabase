@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 router.get('/database', async(req, res) => {
    
-    let data = authController.renderData();
+    let data = await authController.renderData();
     console.log("here's the data: "+ data)
     res.render('database', {data: data});
 });
