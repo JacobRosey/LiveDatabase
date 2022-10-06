@@ -68,5 +68,6 @@ exports.renderData = () => {
             }
         }
     });
+    console.log(sqlData);
     return sqlData;
 }
