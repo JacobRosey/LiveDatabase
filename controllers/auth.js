@@ -71,5 +71,6 @@ exports.renderData = () => {
         }
     });
     console.log(sqlData)
+    console.log('this is the sql data ^')
     return sqlData;
 }
