@@ -74,10 +74,9 @@ exports.renderData = () => {
             } reject();
 
         });
-    })
-    .then(() => {
         return promise;
     })
+    
     /*var sqlData = [];
     const renderPromise = new Promise((resolve, reject) => {
         db.query('SELECT * FROM users', function (error, results, fields) {
