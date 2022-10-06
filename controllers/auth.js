@@ -66,6 +66,7 @@ exports.renderData = () => {
                         hash: results[i].hash
                     };
                     sqlData.push(sqlRow);
+                    console.log(results[i])
                 }
             }
         }
