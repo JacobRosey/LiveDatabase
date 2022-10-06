@@ -13,8 +13,8 @@ router.get('/database', async(req, res) => {
     //Console log is happening before renderData even starts, so need to make 
     //sure that render data is complete before moving on 
     //let data = await authController.renderData();
-    let data = new Promise((resolve, reject) => {
-        if(err){
+    let data = new Promise((resolve, reject, error) => {
+        if(error){
             reject();
         }
         resolve(authController.renderData());
