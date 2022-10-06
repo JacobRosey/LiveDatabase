@@ -18,9 +18,6 @@ function checkForUser(){
             el.style.color = "#000";
             break;
         case 'false':
-            el.innerHTML = "You are not logged in";
-            el.style.color = "#dd3444";
-            break;
         case null:
             el.innerHTML = "You are not logged in";
             el.style.color = "#dd3444";
