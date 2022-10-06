@@ -9,8 +9,9 @@ router.get('/', (req, res) => {
     res.render('index');
 });
 
-router.get('/database', (req, res) => {
-    let data = authController.renderData();
+router.get('/database', async(req, res) => {
+   
+    let data = await authController.renderData();
     console.log("here's the data: "+ data)
     res.render('database', {data: data});
     //res.send('Testing'); this worked, so the code is being reached...
