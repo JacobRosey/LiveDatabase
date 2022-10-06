@@ -59,7 +59,7 @@ exports.renderData = () => {
         if (error) throw error;
         else {
             for (i = 0; i < results.length; i++) {
-                if (results[i].hasOwnProperty("prim_key" && "username" && "hash")) {
+                /*if (results[i].hasOwnProperty("prim_key" && "username" && "hash")) {
                     let sqlRow = {
                         key: results[i].prim_key,
                         user: results[i].username,
@@ -67,7 +67,13 @@ exports.renderData = () => {
                     };
                     sqlData.push(sqlRow);
                     console.log(results[i])
+                }*/
+                let sqlRow = {
+                    key: [i].prim_key,
+                    user: [i].username,
+                    hash: [i].hash
                 }
+                sqlData.push(sqlRow);
             }
         }
     });
