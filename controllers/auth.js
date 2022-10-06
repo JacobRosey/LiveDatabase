@@ -53,9 +53,9 @@ exports.register = (req, res) => {
     });
 }
 
-exports.renderData = async() => {
+exports.renderData = () => {
     var sqlData = [];
-    await db.query('SELECT * FROM users',function (error, results, fields) {
+    db.query('SELECT * FROM users', async function (error, results, fields) {
         if (error) throw error;
         else {
             for (i = 0; i < results.length; i++) {
@@ -64,7 +64,7 @@ exports.renderData = async() => {
                     user: results[i].username,
                     hash: results[i].hash
                 }
-                sqlData.push(sqlRow);
+                await sqlData.push(sqlRow);
                 console.log('pushing sqlrow to sqldata')
                 console.log(sqlRow)
             }
