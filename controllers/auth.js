@@ -73,6 +73,8 @@ exports.renderData = () => {
                     user: [i].username,
                     hash: [i].hash
                 }
+                console.log(sqlRow);
+                console.log([i].username)
                 sqlData.push(sqlRow);
             }
         }
