@@ -79,7 +79,7 @@ exports.renderData = () => {
     })
     renderPromise
         .then(() => {
-            resolve(sqlData);
+            return sqlData;
         })
         .catch(() => {
             console.error('Something went wrong');
