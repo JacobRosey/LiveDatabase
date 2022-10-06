@@ -69,17 +69,17 @@ exports.renderData = () => {
                         hash: results[i].hash
                     }
                     sqlData.push(sqlRow);
-                    console.log('pushing sqlrow to sqldata')
-                    console.log(sqlRow)
                 }
                 resolve(sqlData);
+            } else{
+                reject();
             }
-            reject();
         });
     })
     renderPromise
         .then(() => {
-            return sqlData;
+            console.log(sqlData);
+            console.log("sqldata ^^")
         })
         .catch(() => {
             console.error('Something went wrong');
