@@ -1,2 +1,1 @@
-# heroku app using node, express, bcrypt, mySQL, handlebars, and bootstrap to allow users to login, logout, 
-and edit the database from the browser
+# heroku app using nodejs, express, bcrypt, mySQL, handlebars and bootstrap. Users can login, logout, and edit database from browser
