@@ -2,12 +2,9 @@ const express = require('express');
 const mysql = require('mysql');
 const exphbs = require('express-handlebars');
 const path = require('path');
-//const dotenv = require('dotenv');
 const bcrypt = require('bcryptjs');
 
 //Resume download not working
-
-//dotenv.config({ path: './.env' });
 
 const app = express();
 
@@ -21,17 +18,7 @@ app.set('view engine', 'hbs');
 const db = mysql.createConnection(process.env.JAWSDB_URL);
 
 const port = process.env.PORT || 3000;
-//Create Database Connection LOCALLY 
-/*
-const db = mysql.createConnection({
-    connectionLimit: 100,
-    //acquireTimeout  : 30000,
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
-});
-*/  
+ 
 const publicDirectory = path.join(__dirname, './public/');
 app.use(express.static(publicDirectory));
 
@@ -41,8 +28,9 @@ app.use(express.urlencoded({ extended: false }));
 //Parse JSON
 app.use(express.json());
 
+//Connect to database
 db.connect((err) => {
-    if (err) throw err; //Failed to connect
+    if (err) throw err; 
     console.log('Connected to DB');
 });
 
@@ -69,7 +57,9 @@ app.route('/database')
             if (err) {
                 console.log(err);
             }
-            return res.render('database', { //This statement is not working??
+            return res.render('database', { 
+                //This statement is not working, probably 
+                //because I refresh the page after editing
                 message: 'You edited ' + key
             })
         })

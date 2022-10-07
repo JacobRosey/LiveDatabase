@@ -1,17 +1,9 @@
 const mysql = require('mysql');
-//const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-/*
-const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
-});*/
+//Connect to Jaws DB 
 const db = mysql.createConnection(process.env.JAWSDB_URL);
 
-//May just need to get rid of auth.js and move these to app.js
 exports.register = (req, res) => {
     console.log(req.body);
 
@@ -21,7 +13,9 @@ exports.register = (req, res) => {
         if (err) {
             console.log(err);
         }
-        if (user.length <= 6) {
+        if (user.length <= 6) { 
+            //Need to make these messages show a red banner,
+            //right now it shows green banner as if the registration succeeded
             return res.render('register', {
                 message: 'Username must be 6 or more characters'
             });
@@ -52,7 +46,7 @@ exports.register = (req, res) => {
     });
 }
 
-
+//Export SQL Users table to handlebars template
 exports.renderData = () => {
     var sqlData = [];
     const promise = new Promise((resolve, reject) => {
@@ -76,41 +70,5 @@ exports.renderData = () => {
         });
     })
     return promise;
-    
-    
-    /*var sqlData = [];
-    const renderPromise = new Promise((resolve, reject) => {
-        db.query('SELECT * FROM users', function (error, results, fields) {
-            if (error) {
-                console.log(error);
-                reject();
-            }
-            if (results.length > 0) {
-                for (i = 0; i < results.length; i++) {
-                    let sqlRow = {
-                        key: results[i].prim_key,
-                        user: results[i].username,
-                        hash: results[i].hash
-                    }
-                    sqlData.push(sqlRow);
-                }
-                resolve(sqlData);
-            } else{
-                reject();
-            }
-        });
-    })
-    renderPromise
-    .then(()=>{
-        console.log(sqlData)
-    })
-        /*.then(() => {
-            console.log(sqlData);
-            console.log("sqldata ^^")
-        })
-        .catch(() => {
-            console.error('Something went wrong');
-            res.send("This username does not exist!")
-        })*/
 
 }

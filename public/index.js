@@ -1,7 +1,7 @@
 var pairs = [];
 
-//Could figure out how to use cookies so that you can't edit/delete a user 
-//that is logged in on another tab or computer as well
+//Should probably figure out how to use cookies so that you can't 
+//edit/delete a user that is logged in on another tab or computer as well
 window.onload = checkForUser();
 
 //Checks if user is logged in and displays that on screen
@@ -63,8 +63,6 @@ function deleteRow(num) {
     let user = document.getElementsByClassName('user');
     var currentUser = sessionStorage.getItem('user');
     if(user[num].innerHTML == sessionStorage.getItem('user')){
-        //let modal = document.getElementById('delModal');
-        //modal.preventDefault();
         setTimeout(() => {
             //Simulate button click on modal to close - can't figure out 
             //prevent default. 
@@ -83,7 +81,7 @@ function deleteRow(num) {
 
     let keys = document.getElementsByClassName('key');
     let indices = document.getElementsByClassName('index');
-    //I forgot what this does, but I need it
+    //Keep track of where each table entry exists
     for (i = 0; i < indices.length; i++) {
         let newPair = {
             index: i,
@@ -174,6 +172,7 @@ function logOut(){
 }
 function ajaxFunc(key, path, method, d) {
 
+    //Edit path to be like /login/user/pass, as route is in app.js
     if (method == 'GET') {
         path = path + "/" + d.user + "/" + d.pass + ""
     }
@@ -200,7 +199,7 @@ function ajaxFunc(key, path, method, d) {
         console.log('This is a put request');
         xhr.send(data);
         //reload window so the edited user is updated on screen
-        //there's probably a better way?
+        //there's gotta be a better way
         setTimeout(() => {
             window.location.reload()
         }, 1000)
@@ -224,7 +223,7 @@ function ajaxFunc(key, path, method, d) {
         //State whether login was successful or not
         var response = xhr.responseText;
         if (response == "Login Successful!") {
-            //Will need to change route when this site is live
+            //Redirect to the database page after logging in
             window.location.replace('https://livedatabase.herokuapp.com/database');
             alert(response);
             //Setup session storage

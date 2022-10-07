@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/database', async(req, res) => {
-    //Wait for renderData promise to resolve and return it as 'data'
+    //Wait for renderData promise to resolve before trying to render database.hbs
     let data = await authController.renderData();
     console.log('Here is your data: '+ data);
     res.render('database', {data: data})
