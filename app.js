@@ -2,10 +2,19 @@ const express = require('express');
 const mysql = require('mysql');
 const exphbs = require('express-handlebars');
 const path = require('path');
+<<<<<<< HEAD
+=======
+const dotenv = require('dotenv');
+>>>>>>> 806c757d0e2bcae1f7ed88a3c7cfea09e810eda8
 const bcrypt = require('bcryptjs');
 
 //Resume download not working
 
+<<<<<<< HEAD
+=======
+dotenv.config({ path: './.env' });
+
+>>>>>>> 806c757d0e2bcae1f7ed88a3c7cfea09e810eda8
 const app = express();
 
 //Static files
@@ -15,10 +24,25 @@ app.use(express.static('public'));
 app.engine('hbs', exphbs.engine({ extname: '.hbs' }));
 app.set('view engine', 'hbs');
 
-const db = mysql.createConnection(process.env.JAWSDB_URL);
+//Create db connection for heroku
+//const db = mysql.createConnection(process.env.JAWSDB_URL);
 
+<<<<<<< HEAD
 const port = process.env.PORT || 3000;
  
+=======
+const port = 3250;
+//Create Database Connection LOCALLY 
+const db = mysql.createConnection({
+    connectionLimit: 100,
+    //acquireTimeout  : 30000,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
+});
+
+>>>>>>> 806c757d0e2bcae1f7ed88a3c7cfea09e810eda8
 const publicDirectory = path.join(__dirname, './public/');
 app.use(express.static(publicDirectory));
 
