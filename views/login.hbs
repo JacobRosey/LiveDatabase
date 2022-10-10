@@ -22,10 +22,12 @@
             text-align: center;
             margin: 1em;
         }
-        #loginForm{
-            margin: 1.5em;
+
+        #loginForm {
+            margin: .25em;
             margin-top: -2em;
         }
+
         .container {
             background: #ccc;
             border-radius: 10px;
@@ -35,9 +37,13 @@
             width: 85%;
             max-width: 500px;
         }
-
-        input {
-            min-width: 300px;
+        
+        input { 
+            width: 100%;
+            box-sizing: border-box;
+           /* Keep input from overflowing container */
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
         }
 
 
@@ -45,21 +51,22 @@
             font-weight: bold;
             margin: .3em;
         }
-        footer{
+
+        footer {
             margin-top: 5em;
         }
     </style>
     <h1>Please Log In to Continue!</h1>
     <div class="container">
         <form id="loginForm">
-            <div class="row">
-                <div class="col-sm-4">
+            <div class="form-group">
+                <div class="form-control-lg">
                     <p>Username:</p>
                     <input name="user" type="text" id="loginUser" pattern="/^\S*$/" maxlength="12" required>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-sm-4">
+            <div class="form-group">
+                <div class="form-control-lg">
                     <p>Password:</p>
                     <input name="password" type="password" id="loginPass" pattern="/^\S*$/" maxlength="12" required>
                 </div>

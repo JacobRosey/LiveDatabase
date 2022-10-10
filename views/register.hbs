@@ -34,10 +34,14 @@
             max-width: 500px;
         }
 
-        input {
-            min-width: 300px;
-            width: 85%;
+        input { 
+            width: 100%;
+            box-sizing: border-box;
+           /* Keep input from overflowing container */
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
         }
+        
         form{
             margin: 1.5em;
             margin-top: -2em;
