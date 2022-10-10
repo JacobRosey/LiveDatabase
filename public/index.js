@@ -65,10 +65,11 @@ function deleteRow(num) {
 
     let user = document.getElementsByClassName('user');
     var currentUser = sessionStorage.getItem('user');
-    if(user[num].innerHTML == sessionStorage.getItem('user')){
+    let lCaseUser = user[num].innerHTML.toLowerCase();
+    let lCaseStorage = sessionStorage.getItem('user').toLowerCase();
+    
+    if(lCaseUser == lCaseStorage){
         setTimeout(() => {
-            //Simulate button click on modal to close - can't figure out 
-            //prevent default. 
             document.getElementById('del-close').click();
             alert("You can't delete a user that you're logged in with!")},
             500);
