@@ -34,8 +34,11 @@ function editRow(num) {
     let indices = document.getElementsByClassName('index');
     var currentUser = sessionStorage.getItem('user');
     let user = document.getElementsByClassName('user');
+
+    let lCaseUser = user[num].innerHTML.toLowerCase();
+    let lCaseStorage = sessionStorage.getItem('user').toLowerCase();
     
-    if(user[num].innerHTML == sessionStorage.getItem('user')){
+    if(lCaseUser == lCaseStorage){
         setTimeout(() => {
             document.getElementById('edit-close').click();
             alert("You can't edit a user that you're logged in with!")},
