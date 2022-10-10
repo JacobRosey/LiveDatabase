@@ -229,6 +229,7 @@ function ajaxFunc(key, path, method, d) {
             //Setup session storage
             sessionStorage.setItem('logged', true);
             sessionStorage.setItem('user', d.user);
+            checkForUser();
         } 
         if (response == "Incorrect Password!") {
             alert(response)
