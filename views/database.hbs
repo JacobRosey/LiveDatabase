@@ -40,6 +40,24 @@
             margin: .15em;
         }
 
+        .key{
+            vertical-align: middle;
+        }
+
+        .user{
+            vertical-align: middle;
+        }
+
+        .hash{
+            vertical-align: middle;
+            word-break: break-all;
+        }
+
+        .action-btns{
+            min-width: 175px;
+            vertical-align: middle;
+        }
+
         label {
             color: #000;
             font-weight: 400;
@@ -81,8 +99,8 @@
                 <tr id="{{@index}}" class="index">
                     <td headers="key" class="key">{{key}}</td>
                     <td headers="user" class="user">{{user}}</td>
-                    <td headers="hash">{{hash}}</td>
-                    <td>
+                    <td headers="hash" class="hash">{{hash}}</td>
+                    <td class="action-btns">
                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal"
                             onClick="editRow({{@index}});">Edit</button>
                         <button class="btn btn-danger" id="prevDelModal"data-bs-toggle="modal" data-bs-target="#delModal"
