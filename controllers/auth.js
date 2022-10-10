@@ -1,19 +1,8 @@
 const mysql = require('mysql');
 const bcrypt = require('bcryptjs');
 
-<<<<<<< HEAD
 //Connect to Jaws DB 
 const db = mysql.createConnection(process.env.JAWSDB_URL);
-=======
-
-const db = mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME
-});
-//const db = mysql.createConnection(process.env.JAWSDB_URL);
->>>>>>> 806c757d0e2bcae1f7ed88a3c7cfea09e810eda8
 
 exports.register = (req, res) => {
     console.log(req.body);
